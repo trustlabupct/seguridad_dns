@@ -1,6 +1,6 @@
 # Cliente (contenedor de pruebas)
 ## Ficheros
-- `Dockerfile3` -> Construye la imagen del cliente (incluye herramientas como dig, curl, etc. para validar).
+- `Dockerfile3` -> Construye la imagen del cliente con utilidades (dig, kdig, curl, etc.).
 
 ## Construcción de la imagen
 En el cmd vas a la ruta donde hayas guardado todos los archivos, por ejemplo en mi caso: `cd C:\Users\User\knot-dns-tfg\cliente`. 
