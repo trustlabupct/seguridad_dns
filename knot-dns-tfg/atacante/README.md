@@ -40,9 +40,9 @@ Usa kdig con +tls para enviar consultas por DoT hacia @172.20.0.3:
 Fijarse que el script ejecuta internamente kdig y espera intervalos entre consultas.
 
 ### Tunneling usando DoH — tunneling-doh.py
-Genera consultas DNS binarias usando kdig y las envía por DoH con curl a https://172.20.0.4/dns-query:
+Genera consultas DNS binarias usando kdig y las envía por DoH con curl a `https://172.20.0.4/dns-query`:
 <pre> python3 tunneling-doh.py </pre>
-Asegúrate de que la URL https://172.20.0.4/dns-query es la que corresponde a tu contenedor dnsdist en la red knotnet (la IP puede variar según cómo crees la red/contenedores).
+Asegúrate de que la URL `https://172.20.0.4/dns-query` es la que corresponde a tu contenedor dnsdist en la red knotnet (la IP puede variar según cómo crees la red/contenedores).
 
 ## Consejos prácticos
 - Los scripts usan IP internas fijas: 172.20.0.2 (Knot) y 172.20.0.3 (Unbound). Si al arrancar tus contenedores esas IP cambian, edita los scripts antes de ejecutarlos para poner las IP correctas, o bien asigna la misma subred/IP al crear la red Docker (--subnet=172.20.0.0/16) para que coincidan. Los scripts están escritos con esas IPs como constantes.
