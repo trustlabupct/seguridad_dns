@@ -1,11 +1,11 @@
 # Atacante — contenedor y scripts
 ## Ficheros
-- `Dockerfile5`
-- `poison.py`
-- `poison-doh.py`
-- `tunneling.py`
-- `tunneling-dot.py`
-- `tunneling-doh.py`
+- `Dockerfile5` -> Construye la imagen del atacante con Python3 y Scapy.
+- `poison.py` -> Simulación de ataque de cache poisoning (UDP).
+- `poison-doh.py` -> Variante orientada a DoH.
+- `tunneling.py` -> Simulación de exfiltración por DNS (UDP).
+- `tunneling-dot.py` -> Variante de tunneling sobre DoT.
+- `tunneling-doh.py` -> Variante de tunneling sobre DoH.
 > Nota: los scripts usan direcciones IP internas fijas (por ejemplo 172.20.0.3 para Unbound y 172.20.0.2 para Knot) y comandos como kdig, curl o scapy. Asegúrate de que la imagen construida (Dockerfile5) incluya las herramientas necesarias (Python3, scapy, kdig/curl) o monta las utilidades desde el contenedor cliente si lo prefieres.
 
 ## Construcción de la imagen
