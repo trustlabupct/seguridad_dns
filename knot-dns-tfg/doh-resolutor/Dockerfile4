@@ -1,0 +1,12 @@
+FROM debian:bullseye
+
+RUN apt update && apt install -y \
+    dnsdist \
+    curl \
+    openssl
+
+COPY dnsdist.conf /etc/dnsdist/
+COPY cert.pem /etc/dnsdist/
+COPY key.pem /etc/dnsdist/
+
+CMD ["dnsdist", "--supervised", "--config", "/etc/dnsdist/dnsdist.conf"]

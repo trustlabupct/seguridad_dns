@@ -1,0 +1,20 @@
+# Dockerfile2 con herramientas extra
+FROM alpine:latest
+
+# Instala herramientas útiles como dig, bash y curl + soporte TLS
+RUN apk update && \
+    apk add --no-cache unbound bind-tools bash curl ca-certificates openssl libressl
+
+# Actualiza certificados CA del sistema (necesario para validar TLS)
+RUN update-ca-certificates
+
+# Copia los archivos necesarios al contenedor
+COPY root.key /etc/unbound/root.key
+COPY root.hints /etc/unbound/root.hints
+COPY unbound.conf /etc/unbound/unbound.conf
+
+COPY cert.pem /etc/unbound/cert.pem
+COPY key.pem /etc/unbound/key.pem
+
+# Comando por defecto
+CMD ["unbound", "-d", "-v", "-c", "/etc/unbound/unbound.conf"]
